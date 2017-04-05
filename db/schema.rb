@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406145358) do
+ActiveRecord::Schema.define(version: 20170406145362) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "galleries", force: :cascade do |t|
+    t.string  "name"
+    t.string  "description"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_galleries_on_category_id", using: :btree
+  end
+
+  create_table "pieces", force: :cascade do |t|
+    t.string  "name",        null: false
+    t.string  "description"
+    t.string  "url"
+    t.boolean "showcase"
+    t.integer "gallery_id"
+    t.index ["gallery_id"], name: "index_pieces_on_gallery_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",              default: "", null: false
