@@ -2,6 +2,25 @@
   li {
     a {
       border-radius: 0;
+      background-color: transparent;
+      color: #c7ced8;
+    }
+    a:hover {
+      background-color: transparent;
+    }
+    a:focus {
+      background-color: transparent;
     }
   }
+  li.active {
+    a {
+      background-color: white;
+    }
+  }
+  border-bottom-color: #c7ced8;
+}
+
+body {
+  background-color: #37383a;
+  color: #c7ced8;
 }
