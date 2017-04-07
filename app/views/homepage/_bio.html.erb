@@ -1,2 +1,8 @@
 <h3>Artist Bio</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<%= content_tag :p, id: "bio", data: {bio: @bio} do %>
+<% end %>
+
+<script>
+  var bio = $('#bio').data('bio').text;
+  document.getElementById("bio").innerHTML = bio;
+</script>

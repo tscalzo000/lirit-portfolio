@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406145362) do
+ActiveRecord::Schema.define(version: 20170407003709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bios", force: :cascade do |t|
+    t.string  "text"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_bios_on_user_id", using: :btree
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +39,12 @@ ActiveRecord::Schema.define(version: 20170406145362) do
     t.boolean "showcase"
     t.integer "gallery_id"
     t.index ["gallery_id"], name: "index_pieces_on_gallery_id", using: :btree
+  end
+
+  create_table "resumes", force: :cascade do |t|
+    t.string  "url"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_resumes_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
