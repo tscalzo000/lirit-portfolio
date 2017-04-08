@@ -1,0 +1,6 @@
+<%= form_for @resume do |f| %>
+  <%= f.label :url %>:
+  <%= f.text_field :url, default_value: @resume.url %><br />
+
+  <%= f.submit %>
+<% end %>
