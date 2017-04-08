@@ -8,6 +8,10 @@
     <li><a data-toggle="tab" href="#menu4">Rendering</a></li>
     <li><a data-toggle="tab" href="#menu5">Drawing and Painting</a></li>
     <li><a data-toggle="tab" href="#menu6">Contact Lirit</a></li>
+    <% if user_signed_in? %>
+      <li><a data-toggle="tab" href="#menu7">Edit Information</a></li>
+      <li><a data-toggle="tab" href="#menu8">Add Artwork</a></li>
+    <% end %>
   </ul>
 
   <div class="tab-content">
@@ -31,6 +35,12 @@
     </div>
     <div id="menu6" class="tab-pane fade">
       <%= render "contact" %>
+    </div>
+    <div id="menu7" class="tab-pane fade">
+      <%= render "edit" %>
+    </div>
+    <div id="menu8" class="tab-pane fade">
+      <%= render "add" %>
     </div>
   </div>
 </div>

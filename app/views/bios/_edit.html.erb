@@ -1,0 +1,6 @@
+<%= form_for @bio do |f| %>
+  <%= f.label :text %>:
+  <%= f.text_area(:text, default_value: @bio.text, size: "100%x10%") %><br />
+
+  <%= f.submit %>
+<% end %>
